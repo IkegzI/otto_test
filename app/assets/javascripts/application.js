@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= link_directory ../javascripts /custom_js/*.js
+//= link_directory ../javascripts .js
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

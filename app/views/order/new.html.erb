@@ -1,3 +1,6 @@
+<%= javascript_include_tag :new %>
+
+
 <h1>Order#new</h1>
 <div id='order_lines'></div>
 
@@ -8,10 +11,14 @@
   <input name="order[0][post_index]">
   <input name="order[0][number]">
 
-  <div id='line-order'>
-    <input name="order[0][item][id]">
-    <input name="order[0][item][amount]">
+  <div id="item-list">
+    <div id='line-order'>
+      <input name="order[0][item][id]">
+      <input name="order[0][item][amount]">
+    </div>
   </div>
+
+  <span onclick="addInputGroup()">Добавить</span>
 
   <button name="submit"><%= l(:label_invoice_pay_online) %></button>
 </form>
