@@ -1,2 +1,17 @@
 <h1>Order#new</h1>
-<p>Find me in app/views/order/new.html.erb</p>
+<div id='order_lines'></div>
+
+<form id="create-order" action="/order/create" method="post">
+
+  <input name="order[0][firstname]">
+  <input name="order[0][lastname]">
+  <input name="order[0][post_index]">
+  <input name="order[0][number]">
+
+  <div id='line-order'>
+    <input name="order[0][item][id]">
+    <input name="order[0][item][amount]">
+  </div>
+
+  <button name="submit"><%= l(:label_invoice_pay_online) %></button>
+</form>
