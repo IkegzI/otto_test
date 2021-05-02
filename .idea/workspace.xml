@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b52752de-3a37-41c6-b56d-04f0b33427bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/new.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/new.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/order.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/order.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/order/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/order/new.html.erb" afterDir="false" />
     </list>
@@ -131,7 +132,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1619971658947</updated>
-      <workItem from="1619971660389" duration="2347000" />
+      <workItem from="1619971660389" duration="2592000" />
+      <workItem from="1619974967763" duration="4187000" />
     </task>
     <servers />
   </component>
@@ -143,7 +145,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
