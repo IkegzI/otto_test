@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class OrderLineTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "create order_line blank attr" do
+    assert_not OrderLine.new().valid?
+  end
 end

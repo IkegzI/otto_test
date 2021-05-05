@@ -29,9 +29,15 @@ class OrderController < ApplicationController
 
   def create
     client_info = params.permit(:firstname, :lastname, :post_index, :number, :ignore)
-    order_lines = params.require(:items)
+    order_lines = params.require(:items) if params[:items].present?
+    unless order_lines
+      render json: {error: 'Add line and items'}.to_json
+      return
+    end
     item_ids = order_lines.keys.map { |key| order_lines[key][:item_id].to_i }
     amounts = order_lines.keys.map { |key| order_lines[key][:amount].to_i }
+
+
     unless client_info[:ignore] == 'true'
       if Order.dublicate?(item_ids, amounts)
         render json: {error: 'dublicate'}.to_json
@@ -50,6 +56,7 @@ class OrderController < ApplicationController
     end
     order_line_save = ''
     client_save = ''
+    order_save = ''
     Order.transaction do
       client_save = client.save unless client.id
       order = Order.new(client: client)
@@ -62,8 +69,8 @@ class OrderController < ApplicationController
     end
     # binding.pry
     respond_to do |format|
-      format.html {render html: 'ok'}
-      format.json {render json: {error: 'no_error'} }
+      format.html { render html: 'ok' }
+      format.json { render json: {error: 'no_error'} }
     end
   end
 

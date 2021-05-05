@@ -121,4 +121,18 @@ class OrderControllerTest < ActionDispatch::IntegrationTest
 
   end
 
+  test "should new order without items" do
+    order = Order.last
+
+    order_attr = {number: order.client.number,
+                  firstname: order.client.firstname,
+                  lastname: order.client.lastname,
+                  post_index: order.client.post_index + '1',
+                  ignore: true}
+
+    post '/order', {params: order_attr}
+    assert_equal("{\"error\":\"Add line and items\"}", response.body)
+
+  end
+
 end

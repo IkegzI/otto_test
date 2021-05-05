@@ -15,9 +15,7 @@ function show_create(data) {
     for (let key in data) {
 
         let div_element = document.getElementById('list_order');
-console.log("data[key]['id']",data)
         let p_element = elementCreate('p', '', '', '', {'data-order-id': key})
-
         let span_element = document.createElement('span');
 
 

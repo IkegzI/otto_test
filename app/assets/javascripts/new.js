@@ -19,9 +19,21 @@ function postData() {
         cache: false,
         remote: true,
         success: function (data) {
-            console.log(data)
+            errorNotice(data);
         }
     });
+}
+
+function errorNotice(data) {
+    console.log(data)
+    if (data != 'ok') {
+        let div_element = elementCreate('div', 'error-info', '', '')
+        let p_element = elementCreate('p', '', '', data['error'])
+        div_element.appendChild(p_element)
+    }
+    if (data == 'ok'){
+        document.getElementById('error-info')
+    }
 }
 
 
@@ -30,25 +42,25 @@ function getDataOrder() {
     let input_order_items = document.getElementById('item-list').querySelectorAll('#line-order')
     let data_json = {}
 
-    for (let i=0;i<input_order_info.length;i++){
+    for (let i = 0; i < input_order_info.length; i++) {
         data_json[input_order_info[i].getAttribute('name')] = input_order_info[i].value
     }
     data_json['ignore'] = document.querySelector('[name="ignore"]').checked
 
-    for (let i=0;i<input_order_items.length;i++){
+    for (let i = 0; i < input_order_items.length; i++) {
         let item_number = input_order_items[i].getAttribute('data-number-line-order')
 
-        if (data_json['items'] == null && data_json['items'] != {}){
+        if (data_json['items'] == null && data_json['items'] != {}) {
             data_json['items'] = {}
 
         }
-                if (data_json['items'][item_number] == null && data_json['items'][item_number] != {}){
+        if (data_json['items'][item_number] == null && data_json['items'][item_number] != {}) {
             data_json['items'][item_number] = {}
 
-                }
+        }
 
         data_json['items'][item_number]['item_id'] = input_order_items[i].querySelector('#item_id').value
         data_json['items'][item_number]['amount'] = input_order_items[i].querySelector('#amount').value
     }
-return data_json
+    return data_json
 }
