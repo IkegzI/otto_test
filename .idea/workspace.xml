@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b52752de-3a37-41c6-b56d-04f0b33427bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/javascripts/new.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/new.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/order.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/order.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/order_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/order_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/order/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/order/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db:seed" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +22,7 @@
   <component name="ProjectId" id="1rzGlrYDPsAYlBJRDTXXqOHgLP7" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/assets/javascripts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -134,6 +137,7 @@
       <updated>1619971658947</updated>
       <workItem from="1619971660389" duration="2592000" />
       <workItem from="1619974967763" duration="4187000" />
+      <workItem from="1620223355010" duration="2060000" />
     </task>
     <servers />
   </component>

@@ -1,14 +1,3 @@
-function addInputGroup() {
-    let amount_line_order = parseInt(document.getElementById('item-list').getAttribute('data-amount-number-line-order'))
-    let line_block = document.getElementById('line-order').cloneNode(true);
-    let next_number_line = amount_line_order + 1
-    line_block.setAttribute('data-number-line-order', next_number_line)
-    document.getElementById('item-list').setAttribute('data-amount-number-line-order', next_number_line)
-    for (let i = 0; i < line_block.children.length; i++) {
-        line_block.children[i].value = '';
-    }
-    document.getElementById('item-list').appendChild(line_block)
-}
 
 function postData() {
     $.ajax({
@@ -23,20 +12,23 @@ function postData() {
         }
     });
 }
-
+// вывод предупреждений
 function errorNotice(data) {
-    console.log(data)
-    if (data != 'ok') {
-        let div_element = elementCreate('div', 'error-info', '', '')
-        let p_element = elementCreate('p', '', '', data['error'])
-        div_element.appendChild(p_element)
+    if (document.getElementById('error-info') != null) {
+        document.getElementById('error-info').remove()
     }
-    if (data == 'ok'){
-        document.getElementById('error-info')
+    let data_exist = (data != null)
+    if (data_exist) {
+        if (data['error'] != "no_error") {
+            let div_element = elementCreate('div', 'error-info', '', '')
+            let p_element = elementCreate('p', '', '', data['error'])
+            div_element.appendChild(p_element)
+            document.getElementById('head-page').appendChild(div_element)
+        }
     }
 }
 
-
+//формирование хеша для post запроса
 function getDataOrder() {
     let input_order_info = document.getElementById('base-info').querySelectorAll('input')
     let input_order_items = document.getElementById('item-list').querySelectorAll('#line-order')

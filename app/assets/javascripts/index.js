@@ -1,3 +1,7 @@
+//функция elementCreate перенесена в application.js
+
+
+
 $(document).ready(function () {
     $.ajax({
         type: 'get',
