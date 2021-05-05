@@ -16,3 +16,21 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
+
+function elementCreate(tag, tag_id, tag_class, tag_text, tag_data_attr = {}) {
+    let element = document.createElement(tag);
+    element.textContent = tag_text;
+    if (tag_id != '') {
+        element.setAttribute('id', tag_id);
+    }
+    if (tag_class != '') {
+        element.setAttribute('class', tag_class)
+    }
+    if (tag_data_attr != {}){
+        for (let tag_attr in tag_data_attr){
+            element.setAttribute(tag_attr, tag_data_attr[tag_attr])
+            tag_data_attr[tag_attr]
+        }
+    }
+    return element
+}

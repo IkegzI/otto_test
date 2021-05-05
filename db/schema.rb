@@ -12,6 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2021_05_02_045316) do
 
+  create_table "clients", force: :cascade do |t|
+    t.integer "number"
+    t.string "firstname"
+    t.string "lastname"
+    t.string "post_index"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -29,19 +38,10 @@ ActiveRecord::Schema.define(version: 2021_05_02_045316) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.integer "number"
-    t.string "firstname"
-    t.string "lastname"
-    t.string "post_index"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_orders_on_client_id"
   end
 
 end
