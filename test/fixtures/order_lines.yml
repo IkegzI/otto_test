@@ -2,10 +2,10 @@
 
 one:
   order: one
-  item: one
-  amount: 1
+  item_id: 1
+  amount: 2
 
 two:
-  order: two
-  item: two
-  amount: 1
+  order: one
+  item_id: 2
+  amount: 2

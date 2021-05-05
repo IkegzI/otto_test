@@ -20,6 +20,6 @@ class Order < ApplicationRecord
 
 
   def self.correct_info?(client_find = '', client_info)
-    client_find.attributes.select { |key| ['firstname', 'lastname'].include? key }.values == client_info.permit(:firstname, :lastname).values
+    client_find.attributes.select { |key| ['firstname', 'lastname', 'post_index'].include? key }.values == client_info.permit(:firstname, :lastname, :post_index).values
   end
 end

@@ -17,16 +17,11 @@ int_array = (1..10).map{|i| i}
   )
 end
 
-
-100.times do
-  Item.create(name: (int_array.map { |i| word_array.sample }).join(''))
-end
-
 20.times do
   order = Order.create(client_id: Client.ids.sample)
   rand(15).times do
     OrderLine.create(order_id: order.id,
-                      item: Item.all.sample,
+                      item_id: rand(999999),
                       amount: rand(100))
   end
 end

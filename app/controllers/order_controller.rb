@@ -28,21 +28,22 @@ class OrderController < ApplicationController
   end
 
   def create
-    client_info = params.permit(:firstname, :lastname, :post_index, :number)
+    client_info = params.permit(:firstname, :lastname, :post_index, :number, :ignore)
     order_lines = params.require(:items)
-    item_ids = order_lines.keys.each { |key| order_lines[key][:item_id].to_i }
-    amounts = []
-    order_lines.keys.each { |key| amounts << order_lines[key][:amount].to_i }
-    if Order.dublicate?(item_ids, amounts)
-      render json: {error: 'dublicate'}.to_json
-      return
+    item_ids = order_lines.keys.map { |key| order_lines[key][:item_id].to_i }
+    amounts = order_lines.keys.map { |key| order_lines[key][:amount].to_i }
+    unless client_info[:ignore] == 'true'
+      if Order.dublicate?(item_ids, amounts)
+        render json: {error: 'dublicate'}.to_json
+        return
+      end
     end
     client = Client.find_by(
         number: client_info[:number].to_i
     )
     if client
       order_save = Order.correct_info?(client, client_info)
-      render json: {error: 'check user data'}.to_json unless order_save
+      render json: {error: 'check user data'}.to_json, status: 200 unless order_save
       return
     else
       client = Client.new(client_info)
@@ -55,7 +56,15 @@ class OrderController < ApplicationController
       order_save = order.save
       order_line_save = OrderLine.save_lines_from_params(order.id, order_lines)
     end
-    render json: {error: 'Check data order'}.to_json unless order_save or order_line_save or client_save
+    unless order_save or order_line_save or client_save
+      render json: {error: 'Check data order'}.to_json, status: 200
+      return
+    end
+    # binding.pry
+    respond_to do |format|
+      format.html {render html: 'ok'}
+      format.json {render json: {error: 'no_error'} }
+    end
   end
 
 end
